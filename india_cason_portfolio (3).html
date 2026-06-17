@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>India M. Cason — Instructional Design Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal-950: #03201A;
+    --teal-900: #064036;
+    --teal-800: #0a5c4e;
+    --teal-700: #0e7a68;
+    --teal-600: #129a84;
+    --teal-400: #1ecc9e;
+    --teal-200: #7eebd5;
+    --teal-100: #c2f5e9;
+    --teal-50:  #edfaf6;
+    --slate-900: #1a1f2e;
+    --slate-800: #252b3d;
+    --slate-700: #303750;
+    --slate-500: #5a6380;
+    --slate-400: #7a84a0;
+    --slate-200: #c5cade;
+    --slate-100: #e8eaf3;
+    --slate-50:  #f4f5fa;
+    --amber-500: #c97a12;
+    --amber-400: #e08a14;
+    --amber-100: #fde8c2;
+    --white: #ffffff;
+    --font-display: 'DM Serif Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--white);
+    color: var(--slate-900);
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 60px;
+    background: rgba(255,255,255,0.94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--slate-100);
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--teal-800);
+    letter-spacing: 0.01em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--slate-500);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--teal-700); }
+  .nav-cta {
+    background: var(--teal-800);
+    color: var(--white) !important;
+    padding: 0.45rem 1.1rem;
+    border-radius: 6px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--teal-700) !important; color: var(--white) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: var(--teal-950);
+    padding: 100px 2.5rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(18,154,132,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(18,154,132,0.07) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal-400);
+    margin-bottom: 1.25rem;
+  }
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--teal-200);
+  }
+  .hero-title {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--teal-200);
+    margin-bottom: 1.75rem;
+    letter-spacing: 0.02em;
+  }
+  .hero-bio {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.75;
+    max-width: 42ch;
+    margin-bottom: 2.5rem;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-block;
+    background: var(--teal-400);
+    color: var(--teal-950);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 8px;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--teal-200); }
+  .btn-ghost {
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--teal-400); color: var(--teal-400); }
+
+  /* HERO VISUAL — course cards */
+  .hero-visual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    perspective: 800px;
+  }
+  .course-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 1.25rem;
+    transition: transform 0.3s, background 0.3s;
+    cursor: default;
+  }
+  .course-card:hover {
+    background: rgba(18,154,132,0.15);
+    border-color: var(--teal-600);
+    transform: translateY(-4px);
+  }
+  .course-card.featured {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.25rem;
+  }
+  .icon-teal { background: rgba(18,154,132,0.2); }
+  .icon-amber { background: rgba(192,122,18,0.2); }
+  .icon-slate { background: rgba(90,99,128,0.2); }
+  .card-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal-400);
+    margin-bottom: 0.35rem;
+  }
+  .card-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.4;
+  }
+  .card-meta {
+    font-size: 0.75rem;
+    color: var(--slate-400);
+    margin-top: 0.5rem;
+  }
+  .progress-bar {
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    margin-top: 0.75rem;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--teal-400);
+    border-radius: 2px;
+    animation: fillBar 1.8s ease forwards;
+  }
+  @keyframes fillBar {
+    from { width: 0; }
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: var(--teal-900);
+    padding: 2rem 2.5rem;
+  }
+  .stats-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    color: var(--teal-200);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .stat-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+  }
+
+  /* SECTIONS */
+  section { padding: 5rem 2.5rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal-600);
+    margin-bottom: 0.75rem;
+  }
+  .section-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    color: var(--slate-900);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .section-sub {
+    font-size: 1rem;
+    color: var(--slate-500);
+    max-width: 55ch;
+    margin-bottom: 3rem;
+    line-height: 1.7;
+  }
+
+  /* PORTFOLIO GRID */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .portfolio-card {
+    border: 1px solid var(--slate-100);
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--white);
+    transition: box-shadow 0.25s, transform 0.25s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .portfolio-card:hover {
+    box-shadow: 0 12px 40px rgba(14,122,104,0.12);
+    transform: translateY(-3px);
+  }
+  .card-thumb {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .thumb-teal    { background: var(--teal-50); }
+  .thumb-slate   { background: var(--slate-100); }
+  .thumb-amber   { background: var(--amber-100); }
+  .thumb-teal2   { background: #d4f5ed; }
+  .thumb-slate2  { background: #e4e7f5; }
+  .thumb-amber2  { background: #fef3e0; }
+  .thumb-tag {
+    position: absolute;
+    top: 12px; left: 12px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+  .tag-teal    { background: var(--teal-800); color: var(--teal-50); }
+  .tag-amber   { background: var(--amber-500); color: #fff; }
+  .tag-slate   { background: var(--slate-700); color: var(--white); }
+  .card-body { padding: 1.25rem 1.5rem 1.5rem; }
+  .card-body h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--slate-900);
+    margin-bottom: 0.4rem;
+  }
+  .card-body p {
+    font-size: 0.875rem;
+    color: var(--slate-500);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  .card-tools { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tool-pill {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: var(--teal-50);
+    color: var(--teal-800);
+    border: 1px solid var(--teal-100);
+  }
+
+  /* APPROACH / PROCESS */
+  .approach-section { background: var(--slate-50); }
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0;
+    margin-top: 2rem;
+    border: 1px solid var(--slate-100);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .process-step {
+    padding: 2rem 1.75rem;
+    border-right: 1px solid var(--slate-100);
+    background: var(--white);
+    transition: background 0.2s;
+  }
+  .process-step:last-child { border-right: none; }
+  .process-step:hover { background: var(--teal-50); }
+  .step-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--teal-100);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+  }
+  .step-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--slate-800);
+    margin-bottom: 0.5rem;
+  }
+  .step-desc {
+    font-size: 0.83rem;
+    color: var(--slate-500);
+    line-height: 1.65;
+  }
+
+  /* EXPERTISE */
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .skill-group { margin-bottom: 2rem; }
+  .skill-group-title {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal-600);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--teal-100);
+  }
+  .skill-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.85rem;
+  }
+  .skill-name { font-size: 0.9rem; color: var(--slate-700); font-weight: 400; }
+  .skill-bar-track {
+    width: 160px;
+    height: 5px;
+    background: var(--slate-100);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .skill-bar-fill {
+    height: 100%;
+    background: var(--teal-600);
+    border-radius: 3px;
+    animation: fillBar 1.5s ease forwards;
+  }
+
+  /* TIMELINE / EXPERIENCE */
+  .experience-section { background: var(--slate-900); }
+  .experience-section .section-heading { color: var(--white); }
+  .experience-section .section-eyebrow { color: var(--teal-400); }
+  .experience-section .section-sub { color: var(--slate-400); }
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(var(--teal-800), transparent);
+  }
+  .timeline-item {
+    position: relative;
+    padding-bottom: 3rem;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 4px;
+    width: 9px;
+    height: 9px;
+    background: var(--teal-400);
+    border-radius: 50%;
+    border: 2px solid var(--slate-900);
+  }
+  .timeline-date {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--teal-400);
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+  }
+  .timeline-role {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.2rem;
+  }
+  .timeline-org {
+    font-size: 0.875rem;
+    color: var(--slate-400);
+    margin-bottom: 0.9rem;
+  }
+  .timeline-bullets { list-style: none; }
+  .timeline-bullets li {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.65);
+    padding: 0.3rem 0 0.3rem 1.25rem;
+    position: relative;
+    line-height: 1.6;
+  }
+  .timeline-bullets li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--teal-600);
+    font-size: 0.75rem;
+    top: 0.35rem;
+  }
+
+  /* CERTIFICATIONS */
+  .cert-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .cert-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--white);
+    border: 1px solid var(--slate-100);
+    border-radius: 12px;
+    padding: 0.85rem 1.25rem;
+  }
+  .cert-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--teal-50);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+  }
+  .cert-name { font-size: 0.9rem; font-weight: 500; color: var(--slate-800); }
+  .cert-issuer { font-size: 0.75rem; color: var(--slate-400); }
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--teal-800);
+    text-align: center;
+  }
+  .contact-section .section-eyebrow { color: var(--teal-200); }
+  .contact-section .section-heading { color: var(--white); }
+  .contact-section .section-sub { color: rgba(255,255,255,0.75); max-width: 45ch; margin-left: auto; margin-right: auto; }
+  .contact-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--white);
+    padding: 0.7rem 1.4rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .contact-link:hover { background: rgba(255,255,255,0.2); }
+
+  /* FOOTER */
+  footer {
+    background: var(--teal-950);
+    padding: 1.5rem 2.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.35);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { display: none; }
+    .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-visual { display: none; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); }
+    section { padding: 3.5rem 1.25rem; }
+    .expertise-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr; }
+    .process-step { border-right: none; border-bottom: 1px solid var(--slate-100); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">India M. Cason</span>
+  <ul class="nav-links">
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-inner">
+    <div>
+      <p class="hero-eyebrow">Instructional Design &amp; Learning Technology</p>
+      <h1 class="hero-name">Learning<br>experiences that <em>actually stick.</em></h1>
+      <p class="hero-title">LMS Specialist · eLearning Developer · Healthcare Educator</p>
+      <p class="hero-bio">
+        Fifteen years of designing curriculum, managing enterprise LMS platforms, and building eLearning that drives real adoption — in one of healthcare's most complex environments.
+      </p>
+      <div class="hero-actions">
+        <a href="#portfolio" class="btn-primary">View my work</a>
+        <a href="#contact" class="btn-ghost">Get in touch</a>
+      </div>
+    </div>
+
+    <!-- Decorative courseware visual -->
+    <div class="hero-visual" aria-hidden="true">
+      <div class="course-card featured">
+        <div class="card-icon icon-teal">📋</div>
+        <div>
+          <div class="card-label">eLearning Module</div>
+          <div class="card-title">EPIC EMR Onboarding for Clinical Staff</div>
+          <div class="card-meta">Articulate Storyline 360 · 2,400+ learners</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:92%"></div></div>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="card-label">Curriculum</div>
+        <div class="card-title">Bed Planning Application Training</div>
+        <div class="card-meta">ILT + VILT · Blended</div>
+        <div class="progress-bar"><div class="progress-fill" style="width:88%; animation-delay:0.3s"></div></div>
+      </div>
+      <div class="course-card">
+        <div class="card-label">LMS Build</div>
+        <div class="card-title">SAP LMS Enterprise Rollout</div>
+        <div class="card-meta">Admin · Analytics · Deploy</div>
+        <div class="progress-bar"><div class="progress-fill" style="width:100%; animation-delay:0.5s"></div></div>
+      </div>
+      <div class="course-card">
+        <div class="card-label">Job Aid</div>
+        <div class="card-title">Grand Central Workflow Quick Reference</div>
+        <div class="card-meta">SOP · PDF · Canva</div>
+        <div class="progress-bar"><div class="progress-fill" style="width:78%; animation-delay:0.7s"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div>
+      <span class="stat-num">15+</span>
+      <span class="stat-label">Years in Healthcare ID</span>
+    </div>
+    <div>
+      <span class="stat-num">3</span>
+      <span class="stat-label">EPIC Certifications</span>
+    </div>
+    <div>
+      <span class="stat-num">360°</span>
+      <span class="stat-label">Articulate Suite Power User</span>
+    </div>
+    <div>
+      <span class="stat-num">ADDIE</span>
+      <span class="stat-label">Design Framework</span>
+    </div>
+  </div>
+</div>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="section-inner">
+    <p class="section-eyebrow">Selected Work</p>
+    <h2 class="section-heading">Portfolio highlights</h2>
+    <p class="section-sub">A cross-section of instructional design, LMS development, and training projects from 15+ years at the University of Maryland Medical System.</p>
+
+    <div class="portfolio-grid">
+
+      <div class="portfolio-card">
+        <div class="card-thumb thumb-teal">
+          🏥
+          <span class="thumb-tag tag-teal">eLearning</span>
+        </div>
+        <div class="card-body">
+          <h3>EPIC EMR System Implementation Training</h3>
+          <p>End-to-end eLearning curriculum supporting UMMS's enterprise-wide EPIC rollout — from needs analysis and storyboarding to final Storyline build and learner tracking.</p>
+          <div class="card-tools">
+            <span class="tool-pill">Articulate Storyline</span>
+            <span class="tool-pill">ADDIE</span>
+            <span class="tool-pill">EPIC ADT</span>
+            <span class="tool-pill">LMS Administration</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-thumb thumb-amber">
+          📊
+          <span class="thumb-tag tag-amber">LMS Build</span>
+        </div>
+        <div class="card-body">
+          <h3>SAP LMS Enterprise Implementation</h3>
+          <p>Led full LMS implementation including curriculum deployment architecture, learner tracking configuration, reporting dashboards, and training delivery across multiple hospital facilities.</p>
+          <div class="card-tools">
+            <span class="tool-pill">SAP LMS</span>
+            <span class="tool-pill">Learning Analytics</span>
+            <span class="tool-pill">SAP BI</span>
+            <span class="tool-pill">Curriculum Design</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-thumb thumb-teal2">
+          🛏️
+          <span class="thumb-tag tag-teal">Blended</span>
+        </div>
+        <div class="card-body">
+          <h3>Bed Planning Application Training Program</h3>
+          <p>Designed and developed a blended learning program supporting Bed Planning build, testing, and end-user adoption — including instructor-led, virtual, and self-paced eLearning components.</p>
+          <div class="card-tools">
+            <span class="tool-pill">Blended Learning</span>
+            <span class="tool-pill">Storyboarding</span>
+            <span class="tool-pill">VILT</span>
+            <span class="tool-pill">Adobe Captivate</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-thumb thumb-slate">
+          🔗
+          <span class="thumb-tag tag-slate">Systems</span>
+        </div>
+        <div class="card-body">
+          <h3>Grand Central &amp; Prelude Training Suite</h3>
+          <p>Owned full curriculum development, testing coordination, and SOP documentation for Grand Central and Prelude applications — including interface validation across downstream integrated systems.</p>
+          <div class="card-tools">
+            <span class="tool-pill">EPIC Grand Central</span>
+            <span class="tool-pill">EPIC Prelude</span>
+            <span class="tool-pill">SOP Development</span>
+            <span class="tool-pill">UAT</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-thumb thumb-slate2">
+          🖥️
+          <span class="thumb-tag tag-slate">VILT</span>
+        </div>
+        <div class="card-body">
+          <h3>Meditech Application Training Program</h3>
+          <p>Built and managed a comprehensive ILT/one-on-one training program for Meditech implementation across clinical, operational, and revenue cycle workflows, serving as project manager for all application-related training initiatives.</p>
+          <div class="card-tools">
+            <span class="tool-pill">Meditech</span>
+            <span class="tool-pill">ILT Facilitation</span>
+            <span class="tool-pill">Project Management</span>
+            <span class="tool-pill">Change Management</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-thumb thumb-amber2">
+          📋
+          <span class="thumb-tag tag-amber">Job Aids</span>
+        </div>
+        <div class="card-body">
+          <h3>Clinical Workflow Documentation Library</h3>
+          <p>Developed a comprehensive library of SOPs, job aids, and workflow documentation supporting operational consistency and learner success across UMMS ambulatory and acute care programs.</p>
+          <div class="card-tools">
+            <span class="tool-pill">Technical Writing</span>
+            <span class="tool-pill">Canva</span>
+            <span class="tool-pill">Camtasia</span>
+            <span class="tool-pill">Microsoft Office</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section id="approach" class="approach-section">
+  <div class="section-inner">
+    <p class="section-eyebrow">Design Philosophy</p>
+    <h2 class="section-heading">How I design learning</h2>
+    <p class="section-sub">Grounded in ADDIE and adult learning principles, every project starts with the learner's real workflow and ends with measurable performance change.</p>
+
+    <div class="process-steps">
+      <div class="process-step">
+        <span class="step-num">01</span>
+        <div class="step-title">Analyze</div>
+        <p class="step-desc">Training needs analysis, stakeholder interviews, workflow assessments, and GAP analysis to define the performance gap — before touching any authoring tool.</p>
+      </div>
+      <div class="process-step">
+        <span class="step-num">02</span>
+        <div class="step-title">Design</div>
+        <p class="step-desc">Learning objectives mapped to competencies. Storyboards, interaction design, and course architecture planned before a single slide is built.</p>
+      </div>
+      <div class="process-step">
+        <span class="step-num">03</span>
+        <div class="step-title">Develop</div>
+        <p class="step-desc">eLearning built in Articulate 360 or Adobe Captivate; ILT/VILT facilitation guides; job aids and SOPs; video walkthroughs in Camtasia.</p>
+      </div>
+      <div class="process-step">
+        <span class="step-num">04</span>
+        <div class="step-title">Implement</div>
+        <p class="step-desc">LMS deployment, learner enrollment, communication planning, and live facilitation — including train-the-trainer programs for large rollouts.</p>
+      </div>
+      <div class="process-step">
+        <span class="step-num">05</span>
+        <div class="step-title">Evaluate</div>
+        <p class="step-desc">Learning analytics, completion dashboards, post-training knowledge assessments, and feedback loops that inform continuous improvement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise">
+  <div class="section-inner">
+    <p class="section-eyebrow">Skills &amp; Tools</p>
+    <h2 class="section-heading">Expertise at a glance</h2>
+    <p class="section-sub">15 years of cross-functional experience spanning instructional design, healthcare IT, LMS administration, and data analysis.</p>
+
+    <div class="expertise-grid">
+      <div>
+        <div class="skill-group">
+          <div class="skill-group-title">Authoring &amp; Design Tools</div>
+          <div class="skill-row"><span class="skill-name">Articulate Storyline 360</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:96%"></div></div></div>
+          <div class="skill-row"><span class="skill-name">Articulate Rise</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:92%"></div></div></div>
+          <div class="skill-row"><span class="skill-name">Adobe Captivate</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div></div>
+          <div class="skill-row"><span class="skill-name">Camtasia</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%"></div></div></div>
+          <div class="skill-row"><span class="skill-name">Canva</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:90%"></div></div></div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">LMS &amp; Learning Technology</div>
+          <div class="skill-row"><span class="skill-name">SAP LMS Administration</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:95%"></div></div></div>
+          <div class="skill-row"><span class="skill-name">Learning Analytics &amp; Reporting</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div></div>
+          <div class="skill-row"><span class="skill-name">eLearning Curriculum Deployment</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:94%"></div></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group">
+          <div class="skill-group-title">Healthcare IT</div>
+          <div class="skill-row"><span class="skill-name">EPIC ADT (Certified)</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:97%"></div></div></div>
+          <div class="skill-row"><span class="skill-name">EPIC Cogito (Certified)</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:94%"></div></div></div>
+          <div class="skill-row"><span class="skill-name">Meditech</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:90%"></div></div></div>
+          <div class="skill-row"><span class="skill-name">ERP Systems (SAP, Oracle)</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:82%"></div></div></div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Data &amp; Analysis</div>
+          <div class="skill-row"><span class="skill-name">Tableau / Power BI</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%"></div></div></div>
+          <div class="skill-row"><span class="skill-name">SQL</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:75%"></div></div></div>
+          <div class="skill-row"><span class="skill-name">SAP Business Intelligence</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:84%"></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cert-grid" style="margin-top:3rem">
+      <div>
+        <p class="section-eyebrow" style="margin-bottom:1rem">Certifications &amp; Credentials</p>
+        <div class="cert-grid">
+          <div class="cert-badge">
+            <div class="cert-icon">🏥</div>
+            <div>
+              <div class="cert-name">EPIC ADT Certified</div>
+              <div class="cert-issuer">EPIC Systems</div>
+            </div>
+          </div>
+          <div class="cert-badge">
+            <div class="cert-icon">📊</div>
+            <div>
+              <div class="cert-name">EPIC Cogito Certified</div>
+              <div class="cert-issuer">EPIC Systems</div>
+            </div>
+          </div>
+          <div class="cert-badge">
+            <div class="cert-icon">🎓</div>
+            <div>
+              <div class="cert-name">B.S. Healthcare Administration</div>
+              <div class="cert-issuer">California Coast University, 2012</div>
+            </div>
+          </div>
+          <div class="cert-badge">
+            <div class="cert-icon">📋</div>
+            <div>
+              <div class="cert-name">A.S. Healthcare Information Systems</div>
+              <div class="cert-issuer">Baltimore City Community College, 2010</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="experience-section">
+  <div class="section-inner">
+    <p class="section-eyebrow">Career Timeline</p>
+    <h2 class="section-heading">Professional experience</h2>
+    <p class="section-sub">A 15+ year track record across instructional design, healthcare IT, and clinical operations.</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">December 2011 — Present</div>
+        <div class="timeline-role">Instructional Designer</div>
+        <div class="timeline-org">University of Maryland Medical System</div>
+        <ul class="timeline-bullets">
+          <li>Designed and managed training programs for Bed Planning, Grand Central, and Prelude application implementations</li>
+          <li>Led SAP LMS implementation — curriculum deployment, learner tracking, and training delivery enterprise-wide</li>
+          <li>Supported EPIC EMR implementations, upgrades, and optimization initiatives across UMMS facilities</li>
+          <li>Developed eLearning, SOPs, job aids, and workflow documentation for clinical and operational audiences</li>
+          <li>Facilitated virtual and in-person stakeholder meetings, site visits, and workflow assessments</li>
+          <li>Managed incident resolution and production support via Cherwell ticketing and root cause analysis</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Prior Role</div>
+        <div class="timeline-role">Application Training Manager (Meditech)</div>
+        <div class="timeline-org">University of Maryland Medical System</div>
+        <ul class="timeline-bullets">
+          <li>Designed and delivered ILT and one-on-one training programs for Meditech application implementation</li>
+          <li>Served as project manager for application initiatives spanning clinical, operational, and revenue cycle workflows</li>
+          <li>Implemented data quality monitoring tools and led continuous improvement through data analysis</li>
+          <li>Developed SOPs, training documentation, and compliance educational materials</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">April 2007 — 2011</div>
+        <div class="timeline-role">Medical Office Manager</div>
+        <div class="timeline-org">Johns Hopkins Hospital, Baltimore MD</div>
+        <ul class="timeline-bullets">
+          <li>Managed clinical operations, financial performance, and administration across multiple ambulatory care programs</li>
+          <li>Designed and delivered onboarding and professional development programs for clinical and administrative staff</li>
+          <li>Served as Privacy Coordinator ensuring HIPAA and Joint Commission (JCAHO) compliance</li>
+          <li>Led recruitment, training, and supervision of administrative and clinical support staff</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="section-inner">
+    <p class="section-eyebrow">Let's connect</p>
+    <h2 class="section-heading">Ready to build something meaningful?</h2>
+    <p class="section-sub">I'm available for instructional design, LMS consulting, eLearning development, and healthcare training projects.</p>
+    <div class="contact-links">
+      <a href="mailto:Imcason40@gmail.com" class="contact-link">✉ Imcason40@gmail.com</a>
+      <a href="tel:4109614096" class="contact-link">📞 (410) 961-4096</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 India M. Cason · Instructional Designer &amp; LMS Specialist · Baltimore, MD
+</footer>
+
+</body>
+</html>
